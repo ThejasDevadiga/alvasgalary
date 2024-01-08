@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable responsive lightbox gallery tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="" width="40" height="35" class="d-inline-block align-text-top">
+            <b>ALVAS PHOTO GALARY</b>
+          </a>
+        </div>
+      </nav>
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="college">College</li>
+        <li class="buttons" data-filter="kan">Rajyothsava</li>
+        <li class="buttons" data-filter="cult">Cultural</li>
+        <li class="buttons" data-filter="virasath">virasath</li>
+        <li class="buttons" data-filter="chris">christmas</li>
+        <li class="buttons" data-filter="Kerala">Keraleeyam</li>
+        <li class="buttons" data-filter="nudi">nudisiri</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="images/clg1.jpg" class="image college">
+            <img src="images/clg1.jpg" alt="">
+        </a>
+        <a href="images/clg2.jpg" class="image college">
+            <img src="images/clg2.jpg" alt="">
+        </a>
+        <a href="images/clg3.jpg" class="image college">
+            <img src="images/clg3.jpg" alt="">
+        </a>
+
+        <a href="images/clg4.jpg" class="image college">
+            <img src="images/clg4.jpg" alt="">
+        </a>
+        
+     
+
+        <a href="images/cult1.jpg" class="image cult">
+            <img src="images/cult1.jpg" alt="">
+        </a>
+        <a href="images/clt2.jpg" class="image cult">
+            <img src="images/clt2.jpg" alt="">
+        </a>
+        <a href="images/clt3.jpg" class="image cult">
+            <img src="images/clt3.jpg" alt="">
+        </a>
+        <a href="images/clt4.jpg" class="image cult">
+            <img src="images/clt4.jpg" alt="">
+        </a>
+        
+        
+        <a href="images/virs1.jpg" class="image virasath">
+            <img src="images/virs1.jpg" alt="">
+        </a>
+
+        <a href="images/virs2.jpg" class="image virasath">
+            <img src="images/virs2.jpg" alt="">
+        </a>
+        <a href="images/virs3.jpg" class="image virasath">
+            <img src="images/virs3.jpg" alt="">
+        </a>
+        
+        
+        <a href="images/chr1.jpg" class="image chris">
+            <img src="images/chr1.jpg" alt="">
+        </a>
+        <a href="images/chr2.jpg" class="image chris">
+            <img src="images/chr2.jpg" alt="">
+        </a>
+        <a href="images/chr3.jpg" class="image chris">
+            <img src="images/chr3.jpg" alt="">
+        </a>
+        
+        <a href="images/ker1.jpg" class="image Kerala">
+            <img src="images/ker1.jpg" alt="">
+        </a>
+        <a href="images/ker2.jpg" class="image Kerala">
+            <img src="images/ker2.jpg" alt="">
+        </a>
+        <a href="images/ker3.jpg" class="image Kerala">
+            <img src="images/ker3.jpg" alt="">
+        </a>
+        
+        
+        <a href="images/nudi1.jpg" class="image nudi">
+            <img src="images/nudi1.jpg" alt="">
+        </a>
+        <a href="images/nudi2.jpg" class="image nudi">
+            <img src="images/nudi2.jpg" alt="">
+        </a>
+        <a href="images/nudi3.jpg" class="image nudi">
+        
+        
+        <a href="images/kan1.jpg" class="image kan">
+            <img src="images/kan1.jpg" alt="">
+        </a>
+        <a href="images/kan2.jpg" class="image kan">
+            <img src="images/kan2.jpg" alt="">
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+    
+</body>
+</html>
